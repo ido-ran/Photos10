@@ -9,12 +9,12 @@ sc_require('models/album');
 Photos10.Album.FIXTURES = [
   
   { guid: '1',
-    name: 'Favorites',
+    name: 'Aurora',
     photos: ['100', '101', '102', '103', '104', '105']
   },
 
   { guid: '2',
-    name: 'France Trip',
+    name: 'Dogs',
     photos: ['200', '201', '202', '203', '204', '205', '206', '207']
   },
 

@@ -19,11 +19,11 @@ Photos10.Album.FIXTURES = [
   },
 
   { guid: '3',
-    name: 'Prague'
+    name: 'Cats'
   },
 
   { guid: '4',
-    name: 'Cesky Krumlev'
+    name: 'Bart Simpson'
   }
 
 ];

@@ -1,18 +1,17 @@
-/* @group Photos */
-/*
-.sc-image-view.sc-collection-item.p10-grid-photo-item
+
+.p10-grid-photo-item
 {
-  margin: 30px 30px 30px 30px;
-  -webkit-box-shadow: black 2px 2px 5px;
+	padding: 20px;
 }
 
-.sc-image-view.sc-collection-item.p10-grid-photo-item.sel
+.p10-grid-photo-item.sel
 {
- margin: 20px;
- -webkit-box-shadow: black 4px 4px 10px;
- outline: 3px solid yellow;
- z-index: 10;
+	padding: 20px;
+	z-index: 5;
 }
- */
-/* @end */
- 
+
+.p10-grid-photo-img
+{
+	width: 100%;
+	height: 100%;
+}

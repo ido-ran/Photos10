@@ -11,7 +11,7 @@ Photos10.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'albumsList photosGrid bottomPane'.w(),
+    childViews: 'albumsList photosGridScrollView bottomPane'.w(),
     
     albumsList: SC.ListView.design({
       layout: { top: 0, left: 0, bottom: 40, width: 150 },
@@ -22,14 +22,18 @@ Photos10.mainPage = SC.Page.design({
       rowHeight: 30
     }),
 
-    photosGrid: SC.GridView.design({
-      layout: { left: 150, top: 0, bottom: 40 },
-      contentBinding: 'Photos10.photosController',
-      contentValueKey: 'url',
-      exampleView: Photos10.PhotoGridItemView,
-      rowHeightBinding: 'Photos10.photosController.photoSize',
-      columnWidthBinding: 'Photos10.photosController.photoSize'
-    }),
+	photosGridScrollView: SC.ScrollView.design({
+		layout: { left: 150, top: 0, bottom: 40 },
+		horizontalLineScroll: 100,
+		contentView: 
+			SC.GridView.design({
+      			contentBinding: 'Photos10.photosController',
+      			contentValueKey: 'url',
+      			exampleView: Photos10.PhotoGridItemView,
+      			rowHeightBinding: 'Photos10.photosController.photoSize',
+      			columnWidthBinding: 'Photos10.photosController.photoSize'
+    		}),
+	}),
 
     bottomPane: SC.ToolbarView.design({
       layout: { left: 0, right: 0, bottom: 0, height: 40 },

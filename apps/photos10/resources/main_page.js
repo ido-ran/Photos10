@@ -28,7 +28,6 @@ Photos10.mainPage = SC.Page.design({
 		contentView: 
 			SC.GridView.design({
       			contentBinding: 'Photos10.photosController',
-      			contentValueKey: 'url',
       			exampleView: Photos10.PhotoGridItemView,
       			rowHeightBinding: 'Photos10.photosController.photoSize',
       			columnWidthBinding: 'Photos10.photosController.photoSize'

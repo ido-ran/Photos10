@@ -1,17 +1,14 @@
 
 .p10-grid-photo-item
 {
-	padding: 20px;
 }
 
 .p10-grid-photo-item.sel
 {
-	padding: 20px;
 	z-index: 5;
 }
 
 .p10-grid-photo-img
 {
-	width: 100%;
-	height: 100%;
+
 }

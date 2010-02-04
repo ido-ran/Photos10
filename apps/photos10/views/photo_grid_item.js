@@ -22,7 +22,7 @@ Photos10.PhotoGridItemView = SC.View.extend(SC.Control,
   classNames: 'p10-grid-photo-item'.w(),
   displayProperties: 'imageUrl, imageTitle'.w(),
   tagName: 'div',
-  layout: { top: 10, bottom: 10, left: 10, right: 10 },
+  layout: { top: 10, bottom: 10, centerX: 0 },
 
   contentPropertyDidChange: function(target, key) {
     var ret = sc_super();
@@ -31,30 +31,39 @@ Photos10.PhotoGridItemView = SC.View.extend(SC.Control,
     return ret;
   },
 
+  _pgiv_ImageUrlChanged: function() {
+	  this._pgivImage.set('value', this.get('imageUrl'));
+  }.observes('imageUrl'),
+
+  _pgiv_ImageTitleChanged: function() {
+	  this._pgivLabel.set('value', this.get('imageTitle'));
+  }.observes('imageTitle'),
+
   createChildViews: function() {
     var childViews = [];
     var view;
 
     // Add ImageView
     view = this.createChildView(
-	  SC.ImageView.design({
-	    contentBinding: '.parentView.content',
-	    contentValueKey: 'imageUrl'	
+	  Photos10.CanvasImageView.design({
+		  layout: { left: 10, top: 10, right: 10, bottom: 10 },
+		  classNames: 'p10-grid-photo-img'.w()
  	  }),
     { rootElementPath: [0]}
 	);
 	childViews.push(view);
+	this._pgivImage = view;
 	
 	// Add LabelView
 	view = this.createChildView(
 	  SC.LabelView.design({
 	    layout: { bottom: 4, height: 20, left: 4, right: 4},
-	    contentBinding: '.parentView.content',
-	    contentValueKey: 'imageTitle',
+			textAlign: SC.ALIGN_CENTER
 	  }),
 	  { rootElementPath: [1]}
 	);
 	childViews.push(view);
+	this._pgivLabel = view;
 	
 	this.set('childViews', childViews);
   }

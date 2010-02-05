@@ -37,7 +37,7 @@ Photos10.mainPage = SC.Page.design({
     bottomPane: SC.ToolbarView.design({
       layout: { left: 0, right: 0, bottom: 0, height: 40 },
       anchorLocation: SC.ANCHOR_BOTTOM,
-      childViews: 'photoSizeSlider'.w(),
+      childViews: 'photoSizeSlider helpButton'.w(),
 
       photoSizeSlider: SC.SliderView.design({
         layout: { right: 0, width: 100, height: 30 },
@@ -45,7 +45,14 @@ Photos10.mainPage = SC.Page.design({
         maximum: 350,
         step: 1,
         valueBinding: 'Photos10.photosController.photoSize'
-      })
+      }),
+
+			helpButton: SC.ButtonView.design({
+				layout: { left: 0, width: 60, height: 30 },
+				title: 'Help',
+				target: 'Photos10.helpController',
+				action: 'showHelp'
+			})
     })
 
   })

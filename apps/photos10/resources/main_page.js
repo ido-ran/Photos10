@@ -41,8 +41,8 @@ Photos10.mainPage = SC.Page.design({
 
       photoSizeSlider: SC.SliderView.design({
         layout: { right: 0, width: 100, height: 30 },
-        minimum: 20,
-        maximum: 360,
+        minimum: 130,
+        maximum: 350,
         step: 1,
         valueBinding: 'Photos10.photosController.photoSize'
       })

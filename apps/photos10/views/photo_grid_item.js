@@ -27,7 +27,7 @@ Photos10.PhotoGridItemView = SC.View.extend(SC.Control,
   contentPropertyDidChange: function(target, key) {
     var ret = sc_super();
 		this.updatePropertyFromContent('imageUrl', key, 'contentImageUrlKey');
-		this.updatePropertyFromContent('imageTitle', key, 'contentImageTitleKey');
+		this.updatePropertyFromContent('imageTitle', key, 'contentImageUrlKey');
     return ret;
   },
 
@@ -46,7 +46,7 @@ Photos10.PhotoGridItemView = SC.View.extend(SC.Control,
     // Add ImageView
     view = this.createChildView(
 	  Photos10.CanvasImageView.design({
-		  layout: { left: 10, top: 10, right: 10, bottom: 10 },
+		  layout: { top: 10, bottom: 26, left: 10, right: 10 },
 		  classNames: 'p10-grid-photo-img'.w()
  	  }),
     { rootElementPath: [0]}

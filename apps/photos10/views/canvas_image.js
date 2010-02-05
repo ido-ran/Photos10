@@ -13,9 +13,10 @@
 Photos10.CanvasImageView = SC.View.extend(
 /** @scope Photos10.CanvasImageView.prototype */ {
 
+
 	render: function(context, firstTime) {
 		if (firstTime) {
-			context.push('<canvas></canvas>');
+			context.begin('canvas').end();
 		}
 	},
 
@@ -23,26 +24,69 @@ Photos10.CanvasImageView = SC.View.extend(
 		this._drawImage();
 	},
 	
+	didUpdateLayer: function() {
+		this._drawImage();
+	},
+	
 	_drawImage: function() {
+		var ctrl = this;
+		
+		if (this._img) {
+			ctrl.internalDraw();
+		} else {		
+   		var img = new Image();  
+    	img.onload = function(){
+      	ctrl._img = this;
+				ctrl._internalDraw();
+      } 
+    img.src = this.get('value');
+		} 
+	},
+	
+	_internalDraw: function() {
+
 		var canvas = this.$('canvas')[0];
 		var ctx = canvas.getContext('2d');
-		
-    var img = new Image();  
-		var clipFrame = this.get('clippingFrame');
 
-    img.onload = function(){
-			var h, w;
-			var origRatio = this.width / this.height;
-			if (this.width > this.height) {
-				w = clipFrame.width;
-				h = clipFrame.width * origRatio;
+		var clipFrame = this.get('frame');
+		canvas.width = clipFrame.width;
+		canvas.height = clipFrame.height;
+
+		ctx.fillStyle = 'rgb(255,0,0)';
+		ctx.fillRect(0,0,canvas.width, canvas.height);
+		
+		var ow,oh,dw,dh,or,dr;
+		var rw,rh;
+		ow = this._img.width;
+		oh = this._img.height;
+		dw = ctx.canvas.width;
+		dh = ctx.canvas.height;
+		
+		if (oh > ow) {
+			or = oh / ow;
+			dr = dh / dw;
+			
+			if (or > dr) {
+				rh = dh;
+				rw = dh / or;
 			} else {
-				w = clipFrame.height * origRatio;
-				h = clipFrame.height;
+				rw = dw;
+				rh = dw / (ow / oh);
 			}
-      ctx.drawImage(img,0,0,w,h);
-    }  
-    img.src = this.get('value'); 
+		} else {
+			or = ow / oh;
+			dr = dw / dh;
+			
+			if (or > dr) {
+				rw = dw;
+				rh = dw / or;
+			} else {
+				rh = dh;
+				rw = dh / (oh / ow);
+			}
+		}
+		
+		ctx.drawImage(this._img,0,0, rw,rh);
 	}
 
 });

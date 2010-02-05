@@ -16,5 +16,10 @@ Photos10.albumController = SC.ObjectController.create(
   contentBinding: 'Photos10.albumsController.selection',
   ContentBindingDefault: SC.Binding.single(),
 
+  _contentDidChanged: function() {
+		var album = this.get('name');
+		SC.routes.set('location', 'albums/%@'.fmt(album));
+	}.observes('content'),
+
   photoSize: 160
 }) ;

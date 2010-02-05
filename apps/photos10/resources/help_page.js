@@ -13,14 +13,16 @@ Photos10.helpPage = SC.Page.design({
   mainPane: SC.MainPane.design({
     childViews: 'mainMessage closeButton'.w(),
 
-		mainMessage: SC.LabelView.design({
-			layout: { left: 10, top: 10, right: 10, bottom: 10},
-			value: "This will show the help here<br/>Not much here yet."
+    mainMessage: SC.ContainerView.design({
+			contentView: SC.LabelView.design({
+				layout: { left: 10, top: 60, right: 10, bottom: 10},
+				value: "This will show the help here<br/>Not much here yet."
+				})
 		}),
 		
 		closeButton: SC.ButtonView.design({
-			layout: { left: 0, top: 0, width: 30, height: 14 },
-			value: "Close",
+			layout: { left: 10, top: 10, width: 120, height: 30 },
+			title: "Close",
 			target: 'Photos10.helpController',
 			action: 'closeHelp'
 		})

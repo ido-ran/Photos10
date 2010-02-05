@@ -15,10 +15,10 @@ Photos10.helpController = SC.Controller.create(
 
   showHelp: function() {		
 		var helpPane = Photos10.getPath('helpPage.mainPane');
-		console.log(helpPane);
-		console.log('after write pane');
 		this._helpPane = helpPane;
 		this._helpPane.append();
+		
+		SC.routes.set('location', 'help');
 	},
 	
 	closeHelp: function() {

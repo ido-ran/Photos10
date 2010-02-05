@@ -48,7 +48,7 @@ Photos10.mainPage = SC.Page.design({
       }),
 
 			helpButton: SC.ButtonView.design({
-				layout: { left: 0, width: 60, height: 30 },
+				layout: { left: 20, width: 120, height: 30, top: 5 },
 				title: 'Help',
 				target: 'Photos10.helpController',
 				action: 'showHelp'

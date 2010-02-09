@@ -21,8 +21,7 @@ Photos10.main = function main() {
 
   // Step 2. Set the content property on your primary controller.
   // This will make your app come alive!
-  Photos10.albumsController.set('content',
-   Photos10.store.find(Photos10.Album));
+	Photos10.welcomeController.initialize();
 } ;
 
 function main() { Photos10.main(); }

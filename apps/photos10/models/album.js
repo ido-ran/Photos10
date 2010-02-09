@@ -15,6 +15,7 @@ Photos10.Album = SC.Record.extend(
 /** @scope Photos10.Album.prototype */ {
 
   name: SC.Record.attr(String),
+	lastModified: SC.Record.attr(Date, { useIsoDate:YES }),
   icon: 'sc-icon-folder-16',
 
   photos: SC.Record.toMany('Photos10.Photo',

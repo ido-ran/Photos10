@@ -16,7 +16,7 @@ Photos10.welcomeController = SC.Controller.create(
   initialize: function() {
 	  var q = SC.Query.create({
 			recordType: Photos10.Album,
-			orderBy: "lastModified DESC"
+			orderBy: 'lastModified DESC'
 		});
 		var recentlyChangedAlbums = Photos10.store.find(q);
 		Photos10.welcomeAlbumsController.set('content', recentlyChangedAlbums);

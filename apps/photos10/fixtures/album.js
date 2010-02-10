@@ -10,13 +10,13 @@ Photos10.Album.FIXTURES = [
   
   { guid: '1',
     name: 'Dogs',
-		lastModified: '2010-01-05',
+		lastModified: '2005-01-05',
     photos: ['200', '201', '202', '203', '204', '205', '206', '207']
   },
 
   { guid: '2',
     name: 'Aurora',
-		lastModified: '2010-02-10',
+		lastModified: '2003-02-10',
     photos: ['100', '101', '102', '103', '104', '105']
   },
 
@@ -27,7 +27,7 @@ Photos10.Album.FIXTURES = [
 
   { guid: '4',
     name: 'Bart Simpson',
-		lastModified: '2008-12-10'
+		lastModified: '1999-12-10'
   },
 
   { guid: '5',
@@ -45,7 +45,7 @@ Photos10.Album.FIXTURES = [
 
   { guid: '8',
 		name: 'טיול משפחות לרמת הגולן',
-		lastModified: '2009-04-30'},
+		lastModified: '2010-04-30'},
 				
   { guid: '9',
 		name: 'אנחנו',
